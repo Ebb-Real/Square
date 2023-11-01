@@ -32,6 +32,7 @@ function setup() {
     velocityY = random(-3, 3);
     centerPositionX = width/2;
     centerPositionY = height/2;
+    setShakeThreshold(1);
 }
 
 function draw(){
@@ -43,12 +44,8 @@ function draw(){
     //rotate(PI/3.0);
     rect(posX, posY, rectSizeX, rectSizeY);
     update();
-    fill(0)
+    fill(0);
     text('Hastighed: ' + str(Math.abs(velocityX) + Math.abs(velocityY)), Math.abs(centerPositionX/10), Math.abs(centerPositionY) + Math.abs(centerPositionY/1.25));
-    if (accelerationX >= 35){
-        velocityX++
-        velocityY++
-    }
 }
 
 function update(){
@@ -60,4 +57,9 @@ function update(){
     }
     posX += velocityX;
     posY += velocityY;
+}
+
+function deviceShaken(){
+    velocityX += velocityX/10;
+    velocityY += velocityY/10;
 }
