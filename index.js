@@ -36,7 +36,7 @@ function setup() {
     originalVelocityY = velocityY;
     centerPositionX = width/2;
     centerPositionY = height/2;
-    setShakeThreshold(1);
+    setShakeThreshold(25);
 }
 
 function draw(){
