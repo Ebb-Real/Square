@@ -45,7 +45,7 @@ function draw(){
     rect(posX, posY, rectSizeX, rectSizeY);
     update();
     fill(0);
-    text('Hastighed: ' + str(Math.abs(velocityX) + Math.abs(velocityY)), Math.abs(centerPositionX/10), Math.abs(centerPositionY) + Math.abs(centerPositionY/1.25));
+    text('Hastighed: ' + str(int(Math.abs(velocityX)) + int(Math.abs(velocityY))), int(Math.abs(centerPositionX/10)), int(Math.abs(centerPositionY)) + int(Math.abs(centerPositionY/1.25)));
 }
 
 function update(){
