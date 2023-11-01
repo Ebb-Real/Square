@@ -32,7 +32,7 @@ function setup() {
     velocityY = random(-3, 3);
     centerPositionX = width/2;
     centerPositionY = height/2;
-    setShakeThreshold(1);
+    setShakeThreshold(40);
 }
 
 function draw(){
@@ -40,8 +40,6 @@ function draw(){
     strokeWeight(5);
     fill(255);
     rectMode(CENTER);
-    //translate(positionX, positionY);
-    //rotate(PI/3.0);
     rect(posX, posY, rectSizeX, rectSizeY);
     update();
     fill(0);
@@ -62,4 +60,8 @@ function update(){
 function deviceShaken(){
     velocityX += velocityX/10;
     velocityY += velocityY/10;
+}
+
+function deviceTurned(){
+        velocityX *= -1;
 }
