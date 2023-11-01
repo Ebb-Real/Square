@@ -4,6 +4,8 @@ let rectSizeX = 50;
 let rectSizeY = 50;
 let velocityX;
 let velocityY;
+let originalVelocityX;
+let originalVelocityY;
 let centerPositionX;
 let centerPositionY;
 
@@ -28,11 +30,13 @@ function setup() {
     parentDiv.insertBefore(canvas.elt, p);
     posX = width/2;
     posY = height/2;
-    velocityX = random(-3, 3);
-    velocityY = random(-3, 3);
+    velocityX = random(0, 3);
+    velocityY = random(0, 3);
+    originalVelocityX = velocityX;
+    originalVelocityY = velocityY;
     centerPositionX = width/2;
     centerPositionY = height/2;
-    setShakeThreshold(25);
+    setShakeThreshold(1);
 }
 
 function draw(){
@@ -53,13 +57,27 @@ function update(){
     if(posY >= height - rectSizeY/2 || posY <= 0 + rectSizeY/2){
         velocityY *= -1;
     }
+
     posX += velocityX;
     posY += velocityY;
 }
 
 function deviceShaken(){
-    velocityX += velocityX/10;
-    velocityY += velocityY/10;
+    if(velocityX > 0){
+        velocityX += originalVelocityX/2;
+    }
+
+    if(velocityX < 0){
+        velocityX -= originalVelocityX/2;
+    }
+
+    if(velocityY > 0){
+        velocityY += originalVelocityY/2;
+    }
+
+    if(velocityY < 0){
+        velocityY -= originalVelocityY/2;
+    }
 }
 
 function deviceTurned(){
