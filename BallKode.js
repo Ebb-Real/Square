@@ -39,12 +39,10 @@ function draw(){
     strokeWeight(5);
     fill(255);
     rectMode(CENTER);
-    push();
     //translate(positionX, positionY);
     //rotate(PI/3.0);
     rect(posX, posY, rectSizeX, rectSizeY);
     update();
-    pop();
     fill(0)
     text('Hastighed: ' + str(Math.abs(velocityX) + Math.abs(velocityY)), Math.abs(centerPositionX/10), Math.abs(centerPositionY) + Math.abs(centerPositionY/1.25));
     if (accelerationX >= 35){
